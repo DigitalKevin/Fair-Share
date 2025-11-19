@@ -18,5 +18,5 @@ Help small groups settle expenses without arguments or confusion — using basic
 
 ## Future (Phase 2/3)
 - Optimize who pays who to minimize total number of transactions
-- mobile app version
-- exporting results
+- Mobile app version
+- Exporting results
