@@ -13,8 +13,12 @@ export default function GroupPage({ params }) {
   const [refreshSignal, setRefreshSignal] = useState(0);
   const [groupName, setGroupName] = useState('');
   const [copied, setCopied] = useState(false);
+  const [latestExpense, setLatestExpense] = useState(null);
 
-  const bump = () => setRefreshSignal((s) => s + 1);
+  const bump = (expense) => {
+    if (expense) setLatestExpense(expense);
+    setRefreshSignal((s) => s + 1);
+  };
 
   useEffect(() => {
     const fetchGroup = async () => {
@@ -82,7 +86,7 @@ export default function GroupPage({ params }) {
         <div className="right-panel">
           <Balances refreshSignal={refreshSignal} groupId={groupId} />
           <div style={{marginTop:16}}>
-            <ExpenseList refreshSignal={refreshSignal} onDelete={bump} groupId={groupId} />
+            <ExpenseList refreshSignal={refreshSignal} latestExpense={latestExpense} onDelete={bump} groupId={groupId} />
           </div>
         </div>
       </div>

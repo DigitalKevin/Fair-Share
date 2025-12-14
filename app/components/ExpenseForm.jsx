@@ -49,11 +49,13 @@ export default function ExpenseForm({ onAdded, refreshSignal, groupId }) {
         }),
       });
       if (res.ok) {
+        const newExpense = await res.json();
+        
         setDescription('');
         setAmount('');
         setPayerId('');
         setParticipants(new Set());
-        onAdded();
+        onAdded(newExpense);
       }
     } catch (error) {
       console.error(error);

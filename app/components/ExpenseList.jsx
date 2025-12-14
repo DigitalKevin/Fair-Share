@@ -2,12 +2,21 @@
 
 import { useState, useEffect } from 'react';
 
-export default function ExpenseList({ refreshSignal, onDelete, groupId }) {
+export default function ExpenseList({ refreshSignal, onDelete, groupId, latestExpense }) {
   const [expenses, setExpenses] = useState([]);
   const [people, setPeople] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({});
 
+  useEffect(() => {
+    if (!latestExpense) return;
+
+    setExpenses((prev) => {
+      if (prev.some((e) => e.id === latestExpense.id)) return prev;
+      return [latestExpense, ...prev];
+    });
+  }, [latestExpense]);
+  
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`/api/expenses?groupId=${groupId || 'default'}`, {
