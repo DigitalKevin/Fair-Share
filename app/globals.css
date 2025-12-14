@@ -73,3 +73,13 @@ body{padding-top:var(--topbar-height)}
 .topbar .title-block{display:flex;flex-direction:column}
 .topbar .title-block .brand{font-weight:700;font-size:1.1rem}
 .topbar .title-block .slogan{font-size:0.85rem;color:var(--muted)}
+
+/* Footer */
+.made-by{
+  position:fixed;bottom:1rem;right:1.5rem;z-index:1000;background:var(--card-bg);padding:0.6rem 1rem;border-radius:8px;box-shadow:0 4px 12px rgba(2,6,23,0.08);
+}
+.made-by a{
+  display:flex;align-items:center;gap:4px;font-size:0.85rem;color:var(--muted);text-decoration:none;transition:color 0.2s ease;
+}
+.made-by a:hover{color:var(--accent-start)}
+.made-by a span{font-weight:600;color:#111827}

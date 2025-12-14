@@ -19,6 +19,11 @@ export default function RootLayout({ children }) {
           </div>
         </div>
         {children}
+        <footer className="made-by">
+          <a href="https://github.com/DigitalKevin" target="_blank" rel="noopener noreferrer">
+            Built by <span>Kevin Hoang</span>
+          </a>
+        </footer>
       </body>
     </html>
   );

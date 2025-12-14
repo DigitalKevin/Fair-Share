@@ -100,7 +100,8 @@ tbody tr td:first-child{ font-weight:600 }
 /* Recycle bin floating button */
 .recycle-bin-floating {
   position: fixed;
-  bottom: 20px;
+  /* keep clear of the bottom-right footer */
+  bottom: 55px;
   right: 20px;
   background-color: #95a5a6;
   color: white;
@@ -115,6 +116,11 @@ tbody tr td:first-child{ font-weight:600 }
   gap: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 999;
+}
+
+/* Ensure the recycle button stays above the footer on narrow screens */
+@media (max-width: 600px) {
+  .recycle-bin-floating { bottom: 120px; }
 }
 
 .recycle-bin-floating:hover {
