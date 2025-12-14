@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+export const runtime = "nodejs";
 
 export async function GET(req) {
   try {
@@ -12,10 +13,10 @@ export async function GET(req) {
       return Response.json({ people: [], balances: {}, settlements: [] });
     }
 
-    // Parse expenses
+    // Parse expenses (support `participants` JSON column or legacy `participantIds` string)
     const parsedExpenses = expenses.map((e) => ({
       ...e,
-      participants: JSON.parse(e.participantIds),
+      participants: e.participants !== undefined ? e.participants : (e.participantIds ? JSON.parse(e.participantIds) : []),
     }));
 
     // Compute balances

@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+export const runtime = "nodejs";
 
 export async function POST(req) {
   try {
@@ -28,7 +29,7 @@ export async function GET(req) {
 
     const formattedExpenses = group.expenses.map((e) => ({
       ...e,
-      participants: JSON.parse(e.participantIds),
+      participants: e.participants !== undefined ? e.participants : (e.participantIds ? JSON.parse(e.participantIds) : []),
       participantIds: undefined,
     }));
 

@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+export const runtime = "nodejs";
 
 export async function GET(req) {
   try {
@@ -13,7 +14,7 @@ export async function GET(req) {
 
     const formatted = expenses.map((exp) => ({
       ...exp,
-      participants: JSON.parse(exp.participantIds),
+      participants: exp.participants !== undefined ? exp.participants : (exp.participantIds ? JSON.parse(exp.participantIds) : []),
       participantIds: undefined,
     }));
 
@@ -41,7 +42,7 @@ export async function POST(req) {
         description: description || '',
         amount,
         payerId,
-        participantIds: JSON.stringify(participants),
+        participants,
         groupId,
       },
       include: { payer: true },
@@ -82,7 +83,7 @@ export async function PATCH(req) {
     if (amount !== undefined) updateData.amount = amount;
     if (payerId !== undefined) updateData.payerId = payerId;
     if (participants !== undefined && Array.isArray(participants)) {
-      updateData.participantIds = JSON.stringify(participants);
+      updateData.participants = participants;
     }
 
     const expense = await prisma.expense.update({
@@ -93,7 +94,7 @@ export async function PATCH(req) {
 
     return Response.json({
       ...expense,
-      participants: JSON.parse(expense.participantIds),
+      participants: expense.participants !== undefined ? expense.participants : (expense.participantIds ? JSON.parse(expense.participantIds) : []),
       participantIds: undefined,
     });
   } catch (error) {
