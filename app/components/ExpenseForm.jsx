@@ -12,7 +12,9 @@ export default function ExpenseForm({ onAdded, refreshSignal, groupId }) {
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`);
+      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (res.ok) {
         setPeople(await res.json());
       }

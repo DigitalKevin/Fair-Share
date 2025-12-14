@@ -10,7 +10,9 @@ export default function ExpenseList({ refreshSignal, onDelete, groupId }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/expenses?groupId=${groupId || 'default'}`);
+      const res = await fetch(`/api/expenses?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (res.ok) {
         const data = await res.json();
         setExpenses(Array.isArray(data) ? data : []);
@@ -21,7 +23,9 @@ export default function ExpenseList({ refreshSignal, onDelete, groupId }) {
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`);
+      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (res.ok) {
         setPeople(await res.json());
       }

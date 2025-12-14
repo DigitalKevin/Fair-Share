@@ -7,7 +7,9 @@ export default function Balances({ refreshSignal, groupId }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/balances?groupId=${groupId || 'default'}`);
+      const res = await fetch(`/api/balances?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (res.ok) {
         setData(await res.json());
       }

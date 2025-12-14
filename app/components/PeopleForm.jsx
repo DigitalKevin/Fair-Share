@@ -9,7 +9,9 @@ export default function PeopleForm({ onAdded, refreshSignal, groupId }) {
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`);
+      const res = await fetch(`/api/people?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (res.ok) {
         setPeople(await res.json());
       }
@@ -44,7 +46,9 @@ export default function PeopleForm({ onAdded, refreshSignal, groupId }) {
 
     try {
       // First, fetch all expenses
-      const expensesRes = await fetch(`/api/expenses?groupId=${groupId || 'default'}`);
+      const expensesRes = await fetch(`/api/expenses?groupId=${groupId || 'default'}`, {
+        cache: 'no-store',
+      });
       if (!expensesRes.ok) throw new Error('Failed to fetch expenses');
       const expenses = await expensesRes.json();
       
