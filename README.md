@@ -1,10 +1,10 @@
-# Fair Share - The Easiest Way to Even the Score
+# Tab Together - The Easiest Way to Split Bills and Settle Payments
 
 A modern, no-signup expense-splitting app for groups. Create a shareable link, add expenses, and instantly see who owes whom.
 
 ## ✨ Features
 
-- 🔗 **Shareable Group Links** — No login required; just share a link (e.g., `fairshare.app/g/7fA92KdQ`)
+- 🔗 **Shareable Group Links** — No login required; just share a link (e.g., `tabtogether.app/g/7fA92KdQ`)
 - ➕ **Add/Edit Expenses** — Full control: modify payer, amount, participants, or delete with recycle bin
 - 👥 **Manage People** — Add members and remove them (auto-cleans participant lists)
 - 💰 **Smart Settlement** — Greedy algorithm minimizes transaction count

@@ -48,7 +48,7 @@ export default function Page() {
   return (
     <main className="container">
       <div className="landing-card card">
-        <h1>Fair Share</h1>
+        <h1>Tab Together</h1>
         <p className="small">Create a shared group to track and split expenses. No signup — just share the link.</p>
 
         <div style={{marginTop:12}}>
@@ -80,7 +80,7 @@ export default function Page() {
           </div>
         </div>
 
-        <p className="small" style={{marginTop:14}}>Example invite: <em>yourapp.com/g/7fA92KdQ</em></p>
+        <p className="small" style={{marginTop:14}}>Example invite: <em>fair-share-mu.vercel.app/g/7fA92KdQ</em></p>
       </div>
     </main>
   );

@@ -83,3 +83,26 @@ body{padding-top:var(--topbar-height)}
 }
 .made-by a:hover{color:var(--accent-start)}
 .made-by a span{font-weight:600;color:#111827}
+
+/* Bug report floating button (bottom-left) */
+.bug-report-floating {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ffb84d;
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  z-index: 1000;
+}
+.bug-report-floating:hover{ transform: translateY(-2px) }
+
+/* Bug report modal uses same modal styles as recycle; add variant sizing */
+.bug-report-modal{ position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--card-bg); border-radius:12px; width:90%; max-width:560px; z-index:1102; box-shadow:0 12px 40px rgba(2,6,23,0.15); }
+.bug-report-modal .modal-content{ padding:18px; display:flex; flex-direction:column }
+.bug-report-modal input, .bug-report-modal textarea{ width:100%; padding:10px; border:1px solid #e6e9ef; border-radius:8px; margin-bottom:10px }
+

@@ -1,8 +1,9 @@
 import './globals.css';
+import BugReport from './components/BugReport';
 
 export const metadata = {
-  title: 'FairShare',
-  description: 'The Easiest Way to Even the Score',
+  title: 'TabTogether',
+  description: 'The Easiest Way to Split Bills and Settle Payments',
 };
 
 export default function RootLayout({ children }) {
@@ -11,10 +12,10 @@ export default function RootLayout({ children }) {
       <body>
         <div className="topbar">
           <div className="container">
-            <img src="/assets/FairShareLogo.png" alt="FairShare logo" onError="this.style.display='none'" />
+            <img src="/assets/TabTogetherLogo.png" alt="TabTogether logo" onError="this.style.display='none'" />
             <div className="title-block">
-              <div className="brand">Fair Share</div>
-              <div className="slogan">The Easiest Way to Even the Score</div>
+              <div className="brand">Tab Together</div>
+              <div className="slogan">The Easiest Way to Split Bills and Settle Payments</div>
             </div>
           </div>
         </div>
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
             Built by <span>Kevin Hoang</span>
           </a>
         </footer>
+        <BugReport />
       </body>
     </html>
   );

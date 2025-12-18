@@ -51,7 +51,7 @@ export default function GroupPage({ params }) {
   const handleShare = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ title: groupName || 'Fair Share group', url: inviteLink });
+        await navigator.share({ title: groupName || 'TabTogether group', url: inviteLink });
       } catch (e) {
         console.error(e);
       }
