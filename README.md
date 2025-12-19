@@ -47,7 +47,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-Visit https://fair-share-mu.vercel.app/ and create your first group!
+Visit https://tagtogether-mu.vercel.app/ and create your first group!
 
 ## Project Structure
 
